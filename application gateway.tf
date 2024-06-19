@@ -1,22 +1,24 @@
-
-
-
-resource "azurerm_resource_group" "example" {
-  name     = var.rg
+resource"azurerm_resource_group" "rg"{
+  name = var.rg
   location = var.location
+  
 }
-resource "azurerm_virtual_network" "example" {
-  name                = var.vnet
+
+resource"azurerm_virtual_network" "vnet" {
+  name                = var.ventags 
   resource_group_name = var.rg
   location            = var.location
   address_space       = var.address_space
 }
 
+
+
+
 resource "azurerm_subnet" "example" {
   name                 = var.subnet
   resource_group_name  = var.rg
-  virtual_network_name = azurerm_virtual_network.example.name
-  address_prefixes     = var.subnet
+  virtual_network_name = var.vent
+  address_prefixes     = ["10.0.1.0/26"]
 }
 
 resource "azurerm_public_ip" "example" {
