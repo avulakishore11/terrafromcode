@@ -4,8 +4,8 @@ resource"azurerm_resource_group" "rg"{
   
 }
 
-resource"azurerm_virtual_network" "vnet" {
-  name                = var.ventags 
+resource"azurerm_virtual_network" "vnet1" {
+  name                = var.vnet
   resource_group_name = var.rg
   location            = var.location
   address_space       = var.address_space
@@ -17,7 +17,7 @@ resource"azurerm_virtual_network" "vnet" {
 resource "azurerm_subnet" "example" {
   name                 = var.subnet
   resource_group_name  = var.rg
-  virtual_network_name = var.vent
+  virtual_network_name = var.vnet
   address_prefixes     = ["10.0.1.0/26"]
 }
 
